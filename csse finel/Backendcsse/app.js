@@ -21,6 +21,8 @@ app.get('/', async (req, res, next) => {
 
 
 app.use('/order',require('./routes/Purchase'));
+app.use('/deleivary',require('./routes/DelivaryRouter'))
+app.use('/invoics',require('./routes/Invoicerouter'))
 
 app.use((req, res, next) => {
   next(createError.NotFound());
