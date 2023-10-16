@@ -1,7 +1,7 @@
 const PurchaseOrder = require("../models/PurchaseOrderModel"); // Assuming you have a PurchaseOrder model
 
 // Get all purchase orders
-exports.getAllPurchaseOrders = async (req, res) => {
+const getAllPurchaseOrders = async (req, res) => {
   try {
     const purchaseOrders = await PurchaseOrder.find();
     res.json(purchaseOrders);
@@ -11,7 +11,7 @@ exports.getAllPurchaseOrders = async (req, res) => {
 };
 
 // Approve a purchase order by ID
-exports.approvePurchaseOrder = async (req, res) => {
+const approvePurchaseOrder = async (req, res) => {
   const orderId = req.params.id;
 
   try {
@@ -29,4 +29,9 @@ exports.approvePurchaseOrder = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: "Error approving purchase order" });
   }
+};
+
+module.exports = {
+  getAllPurchaseOrders,
+  approvePurchaseOrder,
 };
