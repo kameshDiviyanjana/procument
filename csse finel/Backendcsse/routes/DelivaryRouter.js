@@ -10,9 +10,9 @@ const { addorderz,
 
     route.post('/Adddelivary',addorderz)
     route.delete("/deltedelivary/:id",delteorder)
-    route.put('/:id',updateOrd)
+    route.put('/up/:id',updateOrd)
     route.get('/',getAllPur)
-    route.get("/:id", getdelivary);
+    route.get("/se/:id", getdelivary);
 
 
     module.exports = route;

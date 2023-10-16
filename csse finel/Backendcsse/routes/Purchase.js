@@ -8,7 +8,7 @@ const { addorder,
     updateOrd} = require("../controlle/PurchaseControll")
 
 
-    route.post("/d",addorder);
+    route.post("/add",addorder);
     route.get("/",getAllPur);
     route.delete("/:id",delteorder);
     route.put("/:id",updateOrd);

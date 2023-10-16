@@ -6,32 +6,40 @@
  */
 
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Orderform from './src/Orderform'
+import Homes from './src/Homes'
 
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
+  SafeAreaView, View,Text
+ 
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Sddddddddddcreen</Text>
+    </View>
+  );
+}
 
 
+const Stack = createNativeStackNavigator();
 function App() {
 
   return (
-<SafeAreaView>
 
-</SafeAreaView>
+
+<NavigationContainer>
+  <Stack.Navigator initialRouteName='home'>
+    <Stack.Screen name='home' component={Orderform}/>
+    <Stack.Screen name='login' component={Homes}/>
+  </Stack.Navigator>
+</NavigationContainer>
+
+
   );
 }
 
