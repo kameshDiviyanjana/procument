@@ -1,15 +1,17 @@
 const express = require("express");
 const route = express.Router();
-const {  addorderz,
-    getAllPur,
-    delteorder,
-    getdelivary,
-    updateOrd} = require('../controlle/InvoiceControlle')
+const {  
+    addInvoice,
+    getAllInvoices,
+    deleteInvoice,
+    getInvoice,
+    updateInvoice
+} = require('../controlle/InvoiceControlle');
 
+route.post('/Add', addInvoice);
+route.delete('/dele', deleteInvoice);
+route.get('/Alldata', getInvoice);
+route.put('/mod', updateInvoice);
+route.get('/alinvoce', getAllInvoices);
 
-route.post('/Add',addorderz)
-route.delete('/dele',delteorder)
-route.get('/Alldata',getdelivary)
-route.put('/mod',updateOrd)
-route.get('alinvoce',getAllPur)
 module.exports = route;
