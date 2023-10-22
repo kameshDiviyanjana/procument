@@ -7,7 +7,8 @@ const addorder = async (req, res) => {
         date,
         empID,
         empName,
-        orderDetails
+        orderDetails,
+        yes
 
     } = req.body;
 
@@ -21,7 +22,8 @@ const addorder = async (req, res) => {
         date,
         empID,
         empName,
-        orderDetails
+        orderDetails,
+        yes
 
     })
 
@@ -63,7 +65,8 @@ const updateOrd = async (req, res) => {
         date,
         empID,
         empName,
-        orderDetails
+        orderDetails,
+        yes
     } = req.body;
     try {
         const result = await Puchase.findOneAndUpdate({empID: empID}, {
@@ -71,7 +74,8 @@ const updateOrd = async (req, res) => {
         date,
         empID,
         empName,
-        orderDetails
+        orderDetails,
+        yes
         });
         res.status(200).send({message: " order updated successfully", data: result});
     } catch (e) {
@@ -96,7 +100,7 @@ const delteorder = async (req, res) => {
 const getEmpAttendanceByID = async (req, res) => {
     const response = await Puchase.findOne({empID: req.params.id});
     if (!(response)) {
-        res.status(500).send(err);
+        res.status(500).send(response);
     } else {
         res.status(200).json({
             result: {

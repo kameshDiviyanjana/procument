@@ -2,16 +2,17 @@ import React,{useState,useEffect} from 'react';
 import {SafeAreaView, View, Text, TextInput, Button,ScrollView,StyleSheet  } from 'react-native';
 import axios from "axios";
 
-const Orderform =()=>{
 
-    const [orderDetais,setorderDetais] = useState([])
+const Orderform =({navigation})=>{
+
+   // const [orderDetais,setorderDetais] = useState([])
     const [email, setEmail] = useState('');
     const [date,setdate] =useState('')
     const [empID,setempID] =useState('')
     const [empName,setempName] =useState('') 
     const [orderDetails,setorderDetails] =useState('')
    const number = '0'
-   
+   const yes = 'No'
     function displyeorder(){
                  
         try {
@@ -21,7 +22,8 @@ const Orderform =()=>{
                 date,
                 empID,
                 empName,
-                orderDetails
+                orderDetails,
+                yes
 
             });
       
@@ -40,13 +42,16 @@ const Orderform =()=>{
           }
         
     }
+    function nextpage(){
+      navigation.navigate('login')
+    }/*
     useEffect(()=>{
         axios.get("http://10.0.2.2:3000/order/").then((response) => {
             setorderDetais(response.data.data)
         }).catch((error) => {
             console.error('Request failed:', error.data.data);
           });
-    },[])
+    },[])*/
 
 
     return(
@@ -54,31 +59,30 @@ const Orderform =()=>{
               <Text style={styles.io}>Order Request</Text>
            
        <ScrollView>
-       <View>
+      {/*<View>
         {
          orderDetais?.map((task,index)=>(
 
           
           <View>
             <Text key={index}>{task._id}</Text>
-            <Text key={index}>{task.ID}</Text>
             <Text key={index}>{task.empID}</Text>
             <Text key={index}>{task.orderDetails}</Text>
             <Text key={index}>{task.date}</Text>
             <Text key={index}>{task.empName}</Text>
-            
+            <Button title="Register" onPress={nextpage} />
             </View>
           
          ))
         }
-       </View>
+       </View> */} 
         
 <View >
 <Text style={styles.label}>Emplyee Name</Text>
 <TextInput
         style={styles.input}
         placeholder="Name"
-       
+       testID='nameem'
         onChangeText={setempName}
        
       />
@@ -88,7 +92,7 @@ const Orderform =()=>{
 <TextInput
         style={styles.input}
         placeholder="Email"
-       
+       testID='emailem'
         onChangeText={setEmail}
        
       />
@@ -99,7 +103,7 @@ const Orderform =()=>{
 <TextInput
         style={styles.input}
         placeholder="Employee Id"
-       
+       testID='emids'
         onChangeText={setempID}
        
       />
@@ -110,7 +114,7 @@ const Orderform =()=>{
 <TextInput
         style={styles.input}
         placeholder="date"
-        
+        testID='dato'
         onChangeText={setdate}
        
       />
@@ -120,16 +124,18 @@ const Orderform =()=>{
 <TextInput
         style={styles.input}
         placeholder="Order Detils"
-      
+        testID='descrip'
         onChangeText={setorderDetails}
        
       />
 </View>
 
 <View style={styles.mybut}>
-<Button title="Register"  onPress={displyeorder}/>
+<Button title="Order"  testID='clicaddorder' onPress={displyeorder}/>
 </View>
-
+<View style={styles.mybut}>
+<Button title="Register"  onPress={nextpage}/>
+</View>
 </ScrollView>
       
         </View>

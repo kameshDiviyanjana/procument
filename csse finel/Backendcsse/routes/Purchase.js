@@ -9,9 +9,9 @@ const { addorder,
 
 
     route.post("/add",addorder);
-    route.get("/",getAllPur);
+    route.get("/as",getAllPur);
     route.delete("/:id",delteorder);
-    route.put("/:id",updateOrd);
+    route.put("update/:id",updateOrd);
     route.get("/:id", getEmpAttendanceByID);
 
     module.exports = route;

@@ -6,6 +6,7 @@ const EmpAttendanceSchema = new Schema({
     empID: {type: String, required: true},
     empName: {type: String, required: true},
     orderDetails: {type: String},
+    yes : {type: String}
     
 
 })
