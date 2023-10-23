@@ -3,7 +3,7 @@ const router = express.Router();
 const ManagerController = require("../controlle/ManagerController");
 
 // Get all purchase orders
-router.get("/purchase-orders", ManagerController.getAllPurchaseOrders);
+router.get("/purchaseorders", ManagerController.getAllPurchaseOrders);
 
 // Approve a specific purchase order by ID
 router.put(

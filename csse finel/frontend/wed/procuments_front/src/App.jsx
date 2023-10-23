@@ -1,15 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import PageNotFound from "./pages/PageNotFound";
+import PageNav from "./components/PageNav";
+import PendingRequests from "./pages/PendingRequests";
+import AcceptOrder from "./pages/AcceptOrder";
 
-import Orderrective from './Page/Orderrective'
 function App() {
   return (
-    <>
-     <Orderrective/>
-    </>
-  )
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/pendingorders" element={<PendingRequests />} />
+          <Route path="/acceptorder" element={<AcceptOrder />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;
