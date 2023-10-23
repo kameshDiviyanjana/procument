@@ -12,7 +12,7 @@ const { addorder,
     route.get("/as",getAllPur);
     route.delete("/:id",delteorder);
     route.put("update/:id",updateOrd);
-    route.get("/:id", getEmpAttendanceByID);
+    route.get("/ser/:id", getEmpAttendanceByID);
 
     module.exports = route;
 

@@ -98,17 +98,17 @@ const delteorder = async (req, res) => {
     }
 };
 const getEmpAttendanceByID = async (req, res) => {
-    const response = await Puchase.findOne({empID: req.params.id});
-    if (!(response)) {
-        res.status(500).send(response);
-    } else {
-        res.status(200).json({
-            result: {
-                data: response,
-                response: true,
-            },
-        });
-    }
+    let usetId =req.params.id
+    const y = Puchase.findById(usetId).then((d)=>{
+
+   //  res.json()
+        res.status(200).send(d)
+    }).catch((err)=>{
+
+        console.log(err.massage);
+        res.status(500).send({status : "erroe wthit get user"});
+
+    })
 };
 
 module.exports = {
