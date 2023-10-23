@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-import {SafeAreaView, View, Text,  Button,ScrollView,StyleSheet  } from 'react-native';
+import {SafeAreaView, View, Text,  Button,ScrollView,StyleSheet,TouchableOpacity  } from 'react-native';
 import axios from "axios";
 
 function Homes({navigation}){
@@ -27,13 +27,16 @@ function Homes({navigation}){
          orderDetais?.map((task,index)=>(
 
           
-          <View>
-            <Text key={index}>{task._id}</Text>
-            <Text key={index}>{task.empID}</Text>
-            <Text key={index}>{task.orderDetails}</Text>
-            <Text key={index}>{task.date}</Text>
-            <Text key={index}>{task.empName}</Text>
-            <Button title="Update" onPress={()=>nextpage(task)} />
+          <View style={myst.myvies}>
+            
+            <Text key={index} style={myst.word}>{task.empID}</Text>
+            <Text key={index} style={myst.word}>{task.orderDetails}</Text>
+            <Text key={index} style={myst.word}>{task.date}</Text>
+            <Text key={index} style={myst.word}>{task.empName}</Text>
+            
+             <TouchableOpacity  style = {myst.mybutton}>
+             <Button title="Update" onPress={()=>nextpage(task)} />
+             </TouchableOpacity>
             </View>
           
          ))
@@ -47,7 +50,31 @@ function Homes({navigation}){
 const myst = StyleSheet.create({
 
   tealings : {
-    textAlign : 'center'
-  }
+    textAlign : 'center',
+    fontSize : 40,
+   color : 'black'
+  },
+
+  myvies :{
+    width : '100px', 
+    height : '40px',
+   backgroundColor : '#e6f3ff',
+    paddingLeft : '10px',
+    
+  },
+  word : {
+         color : 'black',
+         fontSize : 20,
+        
+ paddingLeft : 20 },
+ mybutton : {
+    width : '50px',
+    height : 40,
+    paddingLeft : 20,
+    paddingRight : 30,
+    borderRadius : 20
+    
+ },
+
 });
 export default Homes;
